@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo Cáo Khảo Sát Nhân Viên 2026 — Phân Tích Toàn Diện</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0D1B35; --navy2:#1A2F5A; --navy3:#243B6E;
+  --teal:#05B8A2; --teal2:#34D4BF; --teal3:#CCFBF1;
+  --gold:#F59E0B; --gold2:#FCD34D; --gold3:#FEF3C7;
+  --coral:#EF4444; --coral2:#FCA5A5; --coral3:#FEE2E2;
+  --orange:#F97316; --orange2:#FDBA74; --orange3:#FFF7ED;
+  --sky:#3B82F6; --sky2:#93C5FD; --sky3:#DBEAFE;
+  --green:#10B981; --green2:#6EE7B7; --green3:#D1FAE5;
+  --purple:#8B5CF6; --purple2:#C4B5FD; --purple3:#EDE9FE;
+  --pink:#EC4899; --pink3:#FCE7F3;
+  --bg:#F1F5F9; --white:#FFFFFF; --text:#1E293B;
+  --muted:#64748B; --border:#E2E8F0; --light:#F8FAFC;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:14px;}
+
+/* ─── NAV ─── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(13,27,53,.97);
+  backdrop-filter:blur(10px);
+  display:flex;align-items:center;gap:4px;
+  padding:0 32px;overflow-x:auto;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav a{
+  color:rgba(255,255,255,.55);
+  font-size:11px;font-weight:600;letter-spacing:.5px;
+  padding:14px 12px;white-space:nowrap;
+  text-decoration:none;border-bottom:2px solid transparent;
+  transition:all .2s;
+}
+.nav a:hover{color:#fff;border-bottom-color:var(--teal);}
+
+/* ─── HEADER ─── */
+.header{
+  background:linear-gradient(135deg,var(--navy) 0%,#162444 55%,#0F2040 100%);
+  color:#fff;padding:60px 48px 52px;
+  position:relative;overflow:hidden;
+}
+.header::before{content:'';position:absolute;top:-140px;right:-100px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(5,184,162,.2) 0%,transparent 65%);}
+.header::after{content:'';position:absolute;bottom:-80px;left:30%;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.1) 0%,transparent 65%);}
+.header-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--teal2);margin-bottom:14px;}
+.header h1{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;line-height:1.17;margin-bottom:10px;}
+.header-sub{color:rgba(255,255,255,.52);font-size:13px;margin-bottom:48px;}
+.kpi-row{display:flex;gap:40px;flex-wrap:wrap;position:relative;z-index:1;}
+.kpi{border-left:3px solid var(--teal);padding:4px 0 4px 18px;}
+.kpi.g{border-left-color:var(--gold);}
+.kpi.o{border-left-color:var(--orange);}
+.kpi.s{border-left-color:var(--sky);}
+.kpi.p{border-left-color:var(--purple);}
+.kpi-num{font-size:34px;font-weight:800;color:#fff;line-height:1;}
+.kpi-lbl{font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;font-weight:500;}
+
+/* ─── LAYOUT ─── */
+.main{max-width:1140px;margin:0 auto;padding:44px 24px 80px;}
+.sec{margin-bottom:56px;}
+.sec-head{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.sec-head::after{content:'';flex:1;height:1px;background:var(--border);}
+.sec-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.sec-desc{font-size:13px;color:var(--muted);margin-bottom:24px;}
+
+/* ─── CARDS ─── */
+.card{background:var(--white);border-radius:16px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,.05),0 6px 20px rgba(0,0,0,.04);}
+.card-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.card-sub{font-size:12px;color:var(--muted);margin-bottom:20px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+
+/* ─── TILE ─── */
+.tile{background:var(--white);border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.05);border-top:4px solid var(--teal);}
+.tile.g{border-top-color:var(--gold);}
+.tile.co{border-top-color:var(--coral);}
+.tile.s{border-top-color:var(--sky);}
+.tile.gr{border-top-color:var(--green);}
+.tile.o{border-top-color:var(--orange);}
+.tile.p{border-top-color:var(--purple);}
+.tile-num{font-size:44px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px;}
+.tile-num .u{font-size:20px;color:var(--muted);}
+.tile-lbl{font-size:11px;font-weight:600;color:var(--muted);line-height:1.4;margin-top:6px;}
+.tile-sub{font-size:10px;color:var(--teal);font-weight:600;margin-top:4px;}
+
+/* ─── BARS ─── */
+.br{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.bl{font-size:12px;font-weight:500;min-width:170px;color:var(--text);}
+.bl.sm{min-width:130px;}
+.bl.xs{min-width:100px;}
+.bt{flex:1;background:var(--bg);border-radius:6px;height:26px;overflow:hidden;}
+.bf{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--teal),var(--teal2));display:flex;align-items:center;padding-left:10px;}
+.bf.g{background:linear-gradient(90deg,#D97706,var(--gold));}
+.bf.co{background:linear-gradient(90deg,#DC2626,var(--coral));}
+.bf.s{background:linear-gradient(90deg,#2563EB,var(--sky));}
+.bf.o{background:linear-gradient(90deg,#EA580C,var(--orange));}
+.bf.gr{background:linear-gradient(90deg,#059669,var(--green));}
+.bf.p{background:linear-gradient(90deg,#7C3AED,var(--purple));}
+.bf.n{background:linear-gradient(90deg,var(--navy),var(--navy2));}
+.bf-txt{font-size:10px;font-weight:700;color:#fff;white-space:nowrap;}
+.bp{font-size:12px;font-weight:700;color:var(--navy);min-width:42px;text-align:right;}
+
+/* ─── HIGHLIGHTS ─── */
+.hl{border-left:4px solid var(--teal);background:rgba(5,184,162,.05);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:10px;}
+.hl.w{border-left-color:var(--coral);background:rgba(239,68,68,.05);}
+.hl.a{border-left-color:var(--gold);background:rgba(245,158,11,.05);}
+.hl.i{border-left-color:var(--sky);background:rgba(59,130,246,.05);}
+.hl.p{border-left-color:var(--purple);background:rgba(139,92,246,.05);}
+.hl-tag{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.hl.w .hl-tag{color:var(--coral);}
+.hl.a .hl-tag{color:var(--gold);}
+.hl.i .hl-tag{color:var(--sky);}
+.hl.p .hl-tag{color:var(--purple);}
+.hl-txt{font-size:12.5px;color:var(--text);line-height:1.58;}
+
+/* ─── BENCHMARK TABLE ─── */
+.bm-tbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+.bm-tbl thead th{background:var(--navy);color:#fff;padding:12px 16px;text-align:left;font-weight:600;font-size:11px;letter-spacing:.4px;}
+.bm-tbl thead th:first-child{border-radius:8px 0 0 0;}
+.bm-tbl thead th:last-child{border-radius:0 8px 0 0;}
+.bm-tbl td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.bm-tbl tr:last-child td{border-bottom:none;}
+.bm-tbl tr:hover td{background:var(--light);}
+.bm-tbl .company{font-weight:700;color:var(--navy);}
+.bm-tbl .gap-pos{color:var(--green);font-weight:700;}
+.bm-tbl .gap-neg{color:var(--coral);font-weight:700;}
+.bm-tbl .gap-neu{color:var(--gold);font-weight:700;}
+
+/* ─── BADGE ─── */
+.badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;}
+.bg-gr{background:var(--green3);color:#065F46;}
+.bg-am{background:var(--gold3);color:#92400E;}
+.bg-re{background:var(--coral3);color:#991B1B;}
+.bg-bl{background:var(--sky3);color:#1E40AF;}
+.bg-pu{background:var(--purple3);color:#5B21B6;}
+.bg-te{background:var(--teal3);color:#065F46;}
+
+/* ─── RADAR / SPIDER ─── */
+.radar-wrap{position:relative;width:280px;height:280px;margin:0 auto;}
+
+/* ─── COMPARISON COLUMNS ─── */
+.vs-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05),0 6px 20px rgba(0,0,0,.04);}
+.vs-col{padding:24px;}
+.vs-col.left{background:var(--sky3);}
+.vs-col.right{background:var(--purple3);}
+.vs-mid{background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;width:60px;flex-direction:column;gap:6px;padding:12px 0;}
+.vs-mid-txt{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);writing-mode:vertical-rl;}
+.vs-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
+.vs-col.left .vs-lbl{color:var(--sky);}
+.vs-col.right .vs-lbl{color:var(--purple);}
+
+/* ─── RISK CARDS ─── */
+.risk{border-radius:14px;padding:22px 24px;display:flex;align-items:flex-start;gap:16px;margin-bottom:14px;}
+.risk.hi{background:#FEF2F2;border:1px solid #FECACA;}
+.risk.me{background:#FFFBEB;border:1px solid #FDE68A;}
+.risk.lo{background:#F0FDF4;border:1px solid #BBF7D0;}
+.risk-ico{font-size:28px;flex-shrink:0;line-height:1;}
+.risk-lv{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
+.risk.hi .risk-lv{color:var(--coral);}
+.risk.me .risk-lv{color:var(--gold);}
+.risk.lo .risk-lv{color:var(--green);}
+.risk-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.risk-desc{font-size:12px;color:var(--muted);line-height:1.58;}
+
+/* ─── ACTION TABLE ─── */
+.act-tbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+.act-tbl thead th{background:var(--light);color:var(--navy);padding:11px 14px;text-align:left;font-weight:700;font-size:11px;border-bottom:2px solid var(--border);}
+.act-tbl td{padding:13px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+.act-tbl tr:last-child td{border-bottom:none;}
+.act-tbl tr:nth-child(even) td{background:var(--light);}
+.p1::before{content:'●';color:var(--coral);margin-right:5px;}
+.p2::before{content:'●';color:var(--gold);margin-right:5px;}
+.p3::before{content:'●';color:var(--sky);margin-right:5px;}
+.p4::before{content:'●';color:var(--green);margin-right:5px;}
+
+/* ─── COST CALC ─── */
+.cost-box{background:var(--navy);border-radius:16px;padding:28px;color:#fff;}
+.cost-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.cost-row:last-child{border-bottom:none;border-top:2px solid var(--teal);padding-top:14px;}
+.cost-lbl{font-size:12px;color:rgba(255,255,255,.65);}
+.cost-val{font-size:16px;font-weight:700;color:#fff;}
+.cost-row.total .cost-lbl{font-weight:700;color:#fff;font-size:14px;}
+.cost-row.total .cost-val{color:var(--gold);font-size:22px;}
+
+/* ─── QUOTE ─── */
+.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.q-card{background:var(--light);border-radius:12px;padding:18px 20px;border-left:3px solid var(--teal);font-size:12px;line-height:1.65;font-style:italic;color:var(--text);}
+.q-card.ldr{border-left-color:var(--purple);}
+.q-src{font-size:10px;color:var(--muted);font-style:normal;font-weight:600;margin-top:8px;}
+
+/* ─── GAUGE BAR (for benchmark) ─── */
+.gauge{height:12px;background:var(--bg);border-radius:100px;position:relative;margin:6px 0 2px;}
+.gauge-fill{height:100%;border-radius:100px;position:absolute;top:0;left:0;}
+.gauge-mark{position:absolute;top:-3px;width:3px;height:18px;border-radius:2px;background:var(--navy);}
+.gauge-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:4px;}
+
+/* ─── SCORE COMPARE ─── */
+.score-compare{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+.score-compare:last-child{border-bottom:none;}
+.sc-metric{font-size:13px;font-weight:600;min-width:170px;}
+.sc-bars{flex:1;}
+.sc-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.sc-bar-row:last-child{margin-bottom:0;}
+.sc-tag{font-size:10px;font-weight:600;min-width:80px;}
+.sc-track{flex:1;background:var(--bg);border-radius:4px;height:16px;overflow:hidden;}
+.sc-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:7px;}
+.sc-val{font-size:10px;font-weight:700;min-width:36px;color:var(--navy);}
+.sc-diff{font-size:11px;font-weight:700;min-width:70px;text-align:right;}
+.pos{color:var(--green);}
+.neg{color:var(--coral);}
+.neu{color:var(--gold);}
+
+/* ─── FOOTER ─── */
+.footer{background:var(--navy);border-radius:16px;padding:26px 32px;color:rgba(255,255,255,.55);font-size:11px;display:flex;justify-content:space-between;align-items:center;margin-top:40px;}
+
+/* ─── SVG CHART ─── */
+.svg-wrap{overflow:visible;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#overview">Tổng quan</a>
+  <a href="#benchmark">So sánh Benchmark</a>
+  <a href="#engagement">Gắn kết</a>
+  <a href="#salary">Lương thưởng</a>
+  <a href="#process">Quy trình</a>
+  <a href="#culture">Văn hóa</a>
+  <a href="#leader">Leader</a>
+  <a href="#cost">Chi phí nghỉ việc</a>
+  <a href="#risk">Rủi ro</a>
+  <a href="#roadmap">Lộ trình hành động</a>
+</nav>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Tháng 04–05/2026 · Phân Tích Toàn Diện & Đối Chiếu Benchmark</div>
+  <h1>Báo Cáo Khảo Sát Mức Độ Hài Lòng<br>& Gắn Kết Nhân Viên 2026</h1>
+  <div class="header-sub">Tổng hợp Nhân viên + Leader · So sánh chuẩn ngành · Đề xuất hành động có độ ưu tiên</div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-num">49</div><div class="kpi-lbl">Tổng phản hồi / 80 NV</div></div>
+    <div class="kpi g"><div class="kpi-num">61<span style="font-size:18px;opacity:.7">%</span></div><div class="kpi-lbl">Tỷ lệ phản hồi</div></div>
+    <div class="kpi o"><div class="kpi-num">38</div><div class="kpi-lbl">Nhân viên (Staff)</div></div>
+    <div class="kpi s"><div class="kpi-num">11</div><div class="kpi-lbl">Quản lý (Leader)</div></div>
+    <div class="kpi p"><div class="kpi-num">6.3<span style="font-size:18px;opacity:.7">/10</span></div><div class="kpi-lbl">Điểm hài lòng TB</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ══════════════════════════════════════
+     SECTION 0 — TỔNG QUAN
+══════════════════════════════════════ -->
+<div id="overview" class="sec">
+  <div class="sec-head">01 — Tổng quan & Phân bổ tham gia</div>
+  <div class="grid4" style="margin-bottom:20px;">
+    <div class="tile"><div class="tile-num">80</div><div class="tile-lbl">Tổng nhân sự toàn công ty</div></div>
+    <div class="tile g"><div class="tile-num">49</div><div class="tile-lbl">Phản hồi thu về</div><div class="tile-sub">61.25% — Đạt mức đủ tin cậy</div></div>
+    <div class="tile co"><div class="tile-num">31</div><div class="tile-lbl">Chưa tham gia</div><div class="tile-sub">38.75% dữ liệu bị thiếu</div></div>
+    <div class="tile s"><div class="tile-num">6.3<span class="u">/10</span></div><div class="tile-lbl">Điểm hài lòng tổng thể (toàn công ty)</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Phân bổ phản hồi theo nhóm</div>
+      <div class="card-sub">49 / 80 nhân sự · Tháng 04–05/2026</div>
+      <div class="br"><div class="bl sm">Nhân viên (Staff)</div><div class="bt"><div class="bf s" style="width:47.5%"><span class="bf-txt">38 người · Staff</span></div></div><div class="bp">47.5%</div></div>
+      <div class="br"><div class="bl sm">Quản lý (Leader)</div><div class="bt"><div class="bf p" style="width:13.75%"><span class="bf-txt">11</span></div></div><div class="bp">13.75%</div></div>
+      <div class="br"><div class="bl sm">Chưa phản hồi</div><div class="bt"><div class="bf co" style="width:38.75%"><span class="bf-txt">31 người — cần follow up</span></div></div><div class="bp">38.75%</div></div>
+      <div class="hl a" style="margin-top:14px;">
+        <div class="hl-tag">Lưu ý về tính đại diện</div>
+        <div class="hl-txt">Tỷ lệ 61% là <strong>đủ để phân tích có ý nghĩa thống kê</strong> theo chuẩn HR. Benchmark toàn cầu: tỷ lệ phản hồi tốt là ≥70%, ngành dịch vụ/phân phối thường đạt 55–65%. Cần khuyến khích 31 người còn lại tham gia để đạt độ bao phủ >80%.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Điểm hài lòng theo nhóm — So sánh</div>
+      <div class="card-sub">Thang điểm 1–10 · Staff vs Leader</div>
+      <div style="display:flex;align-items:flex-end;gap:14px;margin-bottom:16px;padding:16px 0;">
+        <div style="flex:1;text-align:center;">
+          <div style="font-size:48px;font-weight:800;color:var(--sky);line-height:1;">6.5</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:600;">Nhân viên (Staff)</div>
+        </div>
+        <div style="color:var(--border);font-size:28px;">|</div>
+        <div style="flex:1;text-align:center;">
+          <div style="font-size:48px;font-weight:800;color:var(--purple);line-height:1;">5.9</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:600;">Leader</div>
+        </div>
+        <div style="color:var(--border);font-size:28px;">|</div>
+        <div style="flex:1;text-align:center;">
+          <div style="font-size:48px;font-weight:800;color:var(--navy);line-height:1;">6.3</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:600;">Trung bình chung</div>
+        </div>
+      </div>
+      <div class="hl w">
+        <div class="hl-tag">Tín hiệu đáng lo ngại</div>
+        <div class="hl-txt">Leader có mức hài lòng <strong>thấp hơn Staff 0.6 điểm</strong>. Thông thường, leader có xu hướng điểm cao hơn vì được trao quyền nhiều hơn. Điểm thấp ở leader gây hiệu ứng lan xuống toàn team.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — BENCHMARK SO SÁNH CHUẨN NGÀNH
+══════════════════════════════════════ -->
+<div id="benchmark" class="sec">
+  <div class="sec-head">02 — So sánh với Benchmark ngành & thị trường Vietnam</div>
+  <div class="sec-title">Vị trí của công ty so với chuẩn ngành</div>
+  <div class="sec-desc">Đối chiếu với dữ liệu Gallup 2024, Talentnet Vietnam 2024, Culture Amp Vietnam 2025, Hive HR Q3/2024 và SME phân phối y tế khu vực</div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-title">Bảng đối chiếu toàn diện — Chỉ số cốt lõi</div>
+    <div class="card-sub">Công ty vs Benchmark SME Việt Nam · Benchmark SME ngành phân phối/y tế · Benchmark Toàn cầu Gallup 2024</div>
+    <table class="bm-tbl">
+      <thead>
+        <tr>
+          <th style="width:22%">Chỉ số</th>
+          <th>Công ty này</th>
+          <th>Benchmark SME VN</th>
+          <th>Benchmark Ngành Phân phối / Y tế</th>
+          <th>Benchmark Toàn cầu (Gallup)</th>
+          <th>Khoảng cách</th>
+          <th>Đánh giá</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tỷ lệ phản hồi khảo sát</strong></td>
+          <td class="company">61%</td>
+          <td>55–65%</td>
+          <td>60–70%</td>
+          <td>—</td>
+          <td class="gap-neu">Ngang bằng</td>
+          <td><span class="badge bg-am">Đạt chuẩn</span></td>
+        </tr>
+        <tr>
+          <td><strong>Điểm hài lòng tổng thể</strong></td>
+          <td class="company">6.3/10</td>
+          <td>6.8–7.2/10</td>
+          <td>6.5–7.0/10</td>
+          <td>~6.8/10</td>
+          <td class="gap-neg">–0.5 đến –0.9</td>
+          <td><span class="badge bg-am">Dưới chuẩn</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tỷ lệ nhân viên gắn kết (Engaged)</strong></td>
+          <td class="company">~45%</td>
+          <td>50–58%</td>
+          <td>48–55%</td>
+          <td>23% (global)</td>
+          <td class="gap-neg">–5% đến –13%</td>
+          <td><span class="badge bg-am">Dưới chuẩn</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tỷ lệ nhân viên vui vẻ hàng ngày</strong></td>
+          <td class="company">45%</td>
+          <td>55–65%</td>
+          <td>52–60%</td>
+          <td>—</td>
+          <td class="gap-neg">–10% đến –20%</td>
+          <td><span class="badge bg-re">Kém chuẩn</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tỷ lệ có ý định nghỉ việc</strong></td>
+          <td class="company">59%</td>
+          <td>35–45%</td>
+          <td>38–48%</td>
+          <td>40–45%</td>
+          <td class="gap-neg">+14% đến +24%</td>
+          <td><span class="badge bg-re">Nguy hiểm</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tỷ lệ cân nhắc nghỉ nghiêm túc</strong></td>
+          <td class="company">18.4%</td>
+          <td>8–12%</td>
+          <td>10–15%</td>
+          <td>15%</td>
+          <td class="gap-neg">+6% đến +10%</td>
+          <td><span class="badge bg-re">Nguy hiểm</span></td>
+        </tr>
+        <tr>
+          <td><strong>Hài lòng với lương thưởng</strong></td>
+          <td class="company">10.5%</td>
+          <td>35–50%</td>
+          <td>30–45%</td>
+          <td>—</td>
+          <td class="gap-neg">–20% đến –40%</td>
+          <td><span class="badge bg-re">Rất kém</span></td>
+        </tr>
+        <tr>
+          <td><strong>Điểm quy trình bộ phận</strong></td>
+          <td class="company">2.8/5</td>
+          <td>3.2–3.6/5</td>
+          <td>3.0–3.5/5</td>
+          <td>—</td>
+          <td class="gap-neg">–0.4 đến –0.8</td>
+          <td><span class="badge bg-re">Kém chuẩn</span></td>
+        </tr>
+        <tr>
+          <td><strong>Niềm tự hào tổ chức</strong></td>
+          <td class="company">3.9/5</td>
+          <td>3.5–4.0/5</td>
+          <td>3.6–4.1/5</td>
+          <td>~3.8/5</td>
+          <td class="gap-neu">Đạt chuẩn</td>
+          <td><span class="badge bg-gr">Tốt</span></td>
+        </tr>
+        <tr>
+          <td><strong>Điểm cân bằng công việc–cuộc sống</strong></td>
+          <td class="company">3.6/5</td>
+          <td>3.4–3.8/5</td>
+          <td>3.3–3.7/5</td>
+          <td>3.3/5 (Gallup)</td>
+          <td class="gap-neu">Ngang bằng</td>
+          <td><span class="badge bg-am">Đạt chuẩn</span></td>
+        </tr>
+        <tr>
+          <td><strong>Voluntary turnover rate (ước tính)</strong></td>
+          <td class="company">~20–25%*</td>
+          <td>9.6% (VN 2024)</td>
+          <td>15–20%</td>
+          <td>—</td>
+          <td class="gap-neg">+10% đến +15%</td>
+          <td><span class="badge bg-re">Rất nguy hiểm</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px;color:var(--muted);margin-top:10px;">* Ước tính dựa trên 18.4% đã cân nhắc nghiêm túc + biến động nhân sự được đề cập trong phản hồi. Nguồn benchmark: Talentnet Vietnam 2024, Culture Amp Vietnam 2025, Gallup State of the Global Workplace 2024, Hive HR Q3/2024.</div>
+  </div>
+
+  <!-- Visual Gauge Comparison -->
+  <div class="grid3">
+    <div class="card">
+      <div class="card-title">🟡 Điểm Hài Lòng — 6.3/10</div>
+      <div class="card-sub">Công ty vs chuẩn ngành</div>
+      <div class="gauge"><div class="gauge-fill" style="width:63%;background:linear-gradient(90deg,var(--gold),var(--orange));"></div><div class="gauge-mark" style="left:68%;background:var(--teal);" title="SME VN avg: 6.8"></div></div>
+      <div class="gauge-labels"><span>0</span><span>Công ty: 6.3</span><span style="color:var(--teal);">SME VN: 6.8</span><span>10</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-top:10px;">Thấp hơn chuẩn SME Việt Nam <strong style="color:var(--coral);">0.5 điểm</strong>. Cần cải thiện ít nhất 0.7–1.0 điểm để đạt mức "khỏe mạnh".</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔴 Ý Định Nghỉ Việc — 59%</div>
+      <div class="card-sub">Công ty vs chuẩn thị trường</div>
+      <div class="gauge"><div class="gauge-fill" style="width:59%;background:linear-gradient(90deg,var(--coral),#F97316);"></div><div class="gauge-mark" style="left:40%;background:var(--green);" title="Benchmark: 40%"></div></div>
+      <div class="gauge-labels"><span>0</span><span style="color:var(--coral);">Công ty: 59%</span><span style="color:var(--green);">Chuẩn: 40%</span><span>100%</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-top:10px;">Cao hơn chuẩn thị trường <strong style="color:var(--coral);">+19 điểm %</strong>. Đây là chỉ số cảnh báo nghiêm trọng nhất trong toàn bộ khảo sát.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔴 Hài Lòng Lương Thưởng — 10.5%</div>
+      <div class="card-sub">Công ty vs chuẩn ngành</div>
+      <div class="gauge"><div class="gauge-fill" style="width:10.5%;background:linear-gradient(90deg,var(--coral),#F97316);"></div><div class="gauge-mark" style="left:40%;background:var(--green);" title="Benchmark: 40%"></div></div>
+      <div class="gauge-labels"><span>0</span><span style="color:var(--coral);">CT: 10.5%</span><span style="color:var(--green);">Chuẩn: 40%</span><span>100%</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-top:10px;">Thấp hơn chuẩn <strong style="color:var(--coral);">–29.5 điểm %</strong>. Đây là điểm khác biệt tệ nhất so với benchmark — rủi ro cực kỳ cao.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — PHÂN TÍCH GẮN KẾT SÂU
+══════════════════════════════════════ -->
+<div id="engagement" class="sec">
+  <div class="sec-head">03 — Phân tích Gắn kết & Tâm lý nhân viên</div>
+
+  <div class="grid2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">Phân loại mức độ gắn kết theo mô hình Gallup</div>
+      <div class="card-sub">Phân tích dựa trên tổng hợp điểm & phản hồi định tính</div>
+      <div class="br"><div class="bl sm">🟢 Gắn kết tích cực (Engaged)</div><div class="bt"><div class="bf gr" style="width:45%"><span class="bf-txt">~22 người</span></div></div><div class="bp">45%</div></div>
+      <div class="br"><div class="bl sm">🟡 Gắn kết thụ động (Not Engaged)</div><div class="bt"><div class="bf g" style="width:37%"><span class="bf-txt">~18 người</span></div></div><div class="bp">37%</div></div>
+      <div class="br"><div class="bl sm">🔴 Mất gắn kết (Disengaged)</div><div class="bt"><div class="bf co" style="width:18%"><span class="bf-txt">~9 người</span></div></div><div class="bp">18%</div></div>
+      <div style="margin-top:14px;padding:14px;background:var(--light);border-radius:10px;">
+        <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:6px;">So sánh với Gallup Global 2024:</div>
+        <div style="font-size:12px;color:var(--muted);">Engaged: 23% (global) → Công ty <strong style="color:var(--green);">45%</strong> — vượt chuẩn toàn cầu<br>Disengaged: 15% (global) → Công ty <strong style="color:var(--coral);">18%</strong> — nhỉnh hơn chuẩn</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">9 chỉ số đánh giá cốt lõi — Điểm TB toàn công ty</div>
+      <div class="card-sub">Thang 1–5 · Sắp xếp từ thấp đến cao</div>
+      <div class="br"><div class="bl xs">Quy trình BP</div><div class="bt"><div class="bf co" style="width:56%"><span class="bf-txt">2.8/5</span></div></div><div class="bp" style="color:var(--coral);">2.8</div></div>
+      <div class="br"><div class="bl xs">Nguồn lực hỗ trợ</div><div class="bt"><div class="bf co" style="width:56%"><span class="bf-txt">2.8/5</span></div></div><div class="bp" style="color:var(--coral);">2.8</div></div>
+      <div class="br"><div class="bl xs">Khối lượng hợp lý</div><div class="bt"><div class="bf o" style="width:62%"><span class="bf-txt">3.1/5</span></div></div><div class="bp">3.1</div></div>
+      <div class="br"><div class="bl xs">Quyết định cấp trên</div><div class="bt"><div class="bf g" style="width:68%"><span class="bf-txt">3.4/5</span></div></div><div class="bp">3.4</div></div>
+      <div class="br"><div class="bl xs">Triển vọng phát triển</div><div class="bt"><div class="bf g" style="width:68%"><span class="bf-txt">3.4/5</span></div></div><div class="bp">3.4</div></div>
+      <div class="br"><div class="bl xs">Cân bằng WLB</div><div class="bt"><div class="bf" style="width:72%"><span class="bf-txt">3.6/5</span></div></div><div class="bp">3.6</div></div>
+      <div class="br"><div class="bl xs">Hiểu rõ JD</div><div class="bt"><div class="bf" style="width:74%"><span class="bf-txt">3.7/5</span></div></div><div class="bp">3.7</div></div>
+      <div class="br"><div class="bl xs">Được tôn trọng</div><div class="bt"><div class="bf s" style="width:76%"><span class="bf-txt">3.8/5</span></div></div><div class="bp">3.8</div></div>
+      <div class="br"><div class="bl xs">Niềm tự hào</div><div class="bt"><div class="bf gr" style="width:78%"><span class="bf-txt">3.9/5</span></div></div><div class="bp">3.9</div></div>
+    </div>
+  </div>
+
+  <!-- Staff vs Leader deep compare -->
+  <div class="card">
+    <div class="card-title">So sánh chi tiết Staff vs Leader — 9 chỉ số</div>
+    <div class="card-sub">Màu xanh = Staff (n=38) · Màu tím = Leader (n=11) · Khoảng cách cho thấy sự khác biệt nhận thức giữa hai tầng</div>
+
+    <div class="score-compare">
+      <div class="sc-metric">Niềm tự hào tổ chức</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:76%;background:var(--sky2);"></div></div><div class="sc-val">3.8</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:82%;background:var(--purple2);"></div></div><div class="sc-val">4.1</div></div>
+      </div>
+      <div class="sc-diff pos">Leader +0.3</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Hiểu rõ JD & vai trò</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:74%;background:var(--sky2);"></div></div><div class="sc-val">3.7</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:74%;background:var(--purple2);"></div></div><div class="sc-val">3.7</div></div>
+      </div>
+      <div class="sc-diff neu">Ngang bằng</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Khối lượng CV hợp lý</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:64%;background:var(--sky2);"></div></div><div class="sc-val">3.2</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:58%;background:var(--purple2);"></div></div><div class="sc-val">2.9</div></div>
+      </div>
+      <div class="sc-diff neg">Leader –0.3</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Quy trình bộ phận mình</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:58%;background:var(--sky2);"></div></div><div class="sc-val">2.9</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:48%;background:var(--purple2);"></div></div><div class="sc-val">2.4</div></div>
+      </div>
+      <div class="sc-diff neg">Leader –0.5 ⚠️</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Được hỗ trợ đủ nguồn lực</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:54%;background:var(--sky2);"></div></div><div class="sc-val">2.7</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:60%;background:var(--purple2);"></div></div><div class="sc-val">3.0</div></div>
+      </div>
+      <div class="sc-diff pos">Leader +0.3</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Được tôn trọng</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:76%;background:var(--sky2);"></div></div><div class="sc-val">3.8</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:74%;background:var(--purple2);"></div></div><div class="sc-val">3.7</div></div>
+      </div>
+      <div class="sc-diff neu">Ngang bằng</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Quyết định cấp trên minh bạch</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:70%;background:var(--sky2);"></div></div><div class="sc-val">3.5</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:66%;background:var(--purple2);"></div></div><div class="sc-val">3.3</div></div>
+      </div>
+      <div class="sc-diff neg">Leader –0.2</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Triển vọng phát triển lâu dài</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:68%;background:var(--sky2);"></div></div><div class="sc-val">3.4</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:70%;background:var(--purple2);"></div></div><div class="sc-val">3.5</div></div>
+      </div>
+      <div class="sc-diff pos">Leader +0.1</div>
+    </div>
+    <div class="score-compare">
+      <div class="sc-metric">Cân bằng WLB</div>
+      <div class="sc-bars">
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--sky);">Staff</div><div class="sc-track"><div class="sc-fill" style="width:74%;background:var(--sky2);"></div></div><div class="sc-val">3.7</div></div>
+        <div class="sc-bar-row"><div class="sc-tag" style="color:var(--purple);">Leader</div><div class="sc-track"><div class="sc-fill" style="width:64%;background:var(--purple2);"></div></div><div class="sc-val">3.2</div></div>
+      </div>
+      <div class="sc-diff neg">Leader –0.5 ⚠️</div>
+    </div>
+    <div class="hl w" style="margin-top:16px;">
+      <div class="hl-tag">Insight quan trọng</div>
+      <div class="hl-txt">Leader có WLB và quy trình thấp hơn Staff đáng kể (–0.5 điểm). Điều này cho thấy <strong>leader đang chịu áp lực vận hành cao hơn</strong> mà không được tháo gỡ đủ. Nếu không can thiệp sớm, đây là nguyên nhân dẫn đến burnout ở tầng quản lý trung và thấp.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — LƯƠNG THƯỞNG PHÂN TÍCH SÂU
+══════════════════════════════════════ -->
+<div id="salary" class="sec">
+  <div class="sec-head">04 — Lương Thưởng — Phân tích chuyên sâu & Đề xuất</div>
+
+  <div class="grid2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">Mức độ hài lòng lương thưởng — Chi tiết</div>
+      <div class="card-sub">Staff (38) + Leader (11) · Đối chiếu với VN SME</div>
+      <div class="br"><div class="bl sm">Staff: Không phù hợp</div><div class="bt"><div class="bf co" style="width:73.7%"><span class="bf-txt">28/38 · 73.7%</span></div></div><div class="bp co">73.7%</div></div>
+      <div class="br"><div class="bl sm">Leader: Chưa phù hợp</div><div class="bt"><div class="bf co" style="width:63.6%"><span class="bf-txt">7/11 · 63.6%</span></div></div><div class="bp co">63.6%</div></div>
+      <div class="br"><div class="bl sm">Chuẩn SME VN không hài lòng</div><div class="bt"><div class="bf g" style="width:50%"><span class="bf-txt">~50% trung bình ngành</span></div></div><div class="bp">~50%</div></div>
+      <div style="margin-top:14px;padding:14px;background:#FEF2F2;border-radius:10px;border:1px solid var(--coral2);">
+        <div style="font-size:12px;font-weight:700;color:var(--coral);margin-bottom:6px;">⚠️ Chênh lệch nghiêm trọng</div>
+        <div style="font-size:12px;color:var(--text);">Tỷ lệ không hài lòng lương cao hơn chuẩn ngành <strong>+23 điểm %</strong>. Chỉ <strong>4/38 nhân viên (10.5%)</strong> cho rằng lương thưởng phù hợp — con số thấp bất thường trong mọi ngành.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Top vấn đề về lương được đề cập trong câu mở</div>
+      <div class="card-sub">Phân loại từ khóa phản hồi định tính — 49 người</div>
+      <div class="br"><div class="bl sm">Không có lộ trình tăng lương</div><div class="bt"><div class="bf co" style="width:78%"><span class="bf-txt">38/49 lần</span></div></div><div class="bp">77.5%</div></div>
+      <div class="br"><div class="bl sm">Lương người mới = lương người cũ</div><div class="bt"><div class="bf o" style="width:65%"><span class="bf-txt">32/49</span></div></div><div class="bp">65.3%</div></div>
+      <div class="br"><div class="bl sm">BO không có thưởng doanh thu</div><div class="bt"><div class="bf g" style="width:55%"><span class="bf-txt">27/49</span></div></div><div class="bp">55.1%</div></div>
+      <div class="br"><div class="bl sm">Không review lương định kỳ</div><div class="bt"><div class="bf g" style="width:50%"><span class="bf-txt">24/49</span></div></div><div class="bp">49%</div></div>
+      <div class="br"><div class="bl sm">Không có văn bản chính sách</div><div class="bt"><div class="bf s" style="width:40%"><span class="bf-txt">20/49</span></div></div><div class="bp">40.8%</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-title">Phân tích cấu trúc vấn đề lương thưởng — Mô hình 4 tầng</div>
+    <div class="card-sub">Nguyên nhân gốc rễ → Biểu hiện → Hậu quả → Giải pháp</div>
+    <div style="overflow-x:auto;">
+      <table class="bm-tbl">
+        <thead><tr><th>Tầng</th><th>Mô tả vấn đề</th><th>Dấu hiệu từ khảo sát</th><th>Tác động</th><th>Giải pháp đề xuất</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="badge bg-re">Nguyên nhân gốc</span></td>
+            <td><strong>Không có khung lương & band lương rõ ràng</strong></td>
+            <td>"Không có văn bản chính sách cụ thể", "hứa nhưng không thực hiện"</td>
+            <td>Nhân viên không biết phải phấn đấu gì để tăng lương</td>
+            <td>Xây dựng Job grading + Pay band theo vị trí</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-re">Nguyên nhân gốc</span></td>
+            <td><strong>Không review lương định kỳ, thiếu quy trình</strong></td>
+            <td>"Hỏi NS thì hẹn từ tuần này sang tuần khác", "GDNS mới lại bàn lại từ đầu"</td>
+            <td>Mất tin tưởng vào cam kết của tổ chức</td>
+            <td>Chu kỳ review lương 2 lần/năm có SLA phản hồi</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-am">Biểu hiện</span></td>
+            <td><strong>Nghịch lý: Người mới lương ≈ người cũ</strong></td>
+            <td>"Người mới vào lương gần bằng mình, trong khi áp lực công việc của tôi gấp 2–3"</td>
+            <td>Mất động lực nhân sự lâu năm, gây mất đoàn kết nội bộ</td>
+            <td>Điều chỉnh lương thâm niên + thưởng gắn bó năm</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-am">Biểu hiện</span></td>
+            <td><strong>Back-office không có cơ chế thưởng theo doanh thu</strong></td>
+            <td>"Hoa hồng sale hưởng, khối văn phòng chỉ lương cứng"</td>
+            <td>BO không có động lực hỗ trợ sale, gây ách tắc quy trình</td>
+            <td>Thưởng % doanh thu theo mốc cho kho, KT, giao nhận</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-bl">Hậu quả</span></td>
+            <td><strong>73.7% nhân viên không hài lòng lương</strong></td>
+            <td>Lý do nghỉ việc #1 trong toàn bộ khảo sát</td>
+            <td>Chảy máu nhân tài, chi phí tuyển dụng tăng cao</td>
+            <td>Xem chi tiết tại mục Chi phí nghỉ việc</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="hl w">
+      <div class="hl-tag">Đề xuất 1 — Cấp bách</div>
+      <div class="hl-txt"><strong>Công bố khung lương bằng văn bản trong 30 ngày</strong>: Job level 1–6, pay band theo vị trí, điều kiện tăng lương cụ thể. Không cần hoàn hảo — version đầu là tín hiệu cam kết.</div>
+    </div>
+    <div class="hl a">
+      <div class="hl-tag">Đề xuất 2 — Trong 60 ngày</div>
+      <div class="hl-txt"><strong>Review lương thâm niên ngay cho nhóm 3–5+ năm</strong>: Ưu tiên người có thâm niên ≥3 năm, chưa tăng lương >12 tháng. Mức điều chỉnh 5–15% sẽ giữ chân được nhóm rủi ro cao nhất.</div>
+    </div>
+    <div class="hl i">
+      <div class="hl-tag">Đề xuất 3 — Trong 90 ngày</div>
+      <div class="hl-txt"><strong>Triển khai thưởng variable cho back-office</strong>: Cơ chế 15–25% lương theo doanh thu. Kế toán công nợ, kho, giao nhận đều nên được hưởng lợi khi công ty bán hàng tốt.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 — QUY TRÌNH SÂU
+══════════════════════════════════════ -->
+<div id="process" class="sec">
+  <div class="sec-head">05 — Quy trình vận hành — Phân tích điểm nghẽn & Roadmap</div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-title">Ma trận vấn đề quy trình — Tần suất × Mức độ ảnh hưởng</div>
+    <div class="card-sub">Phân loại từ phản hồi mở · Ô màu đỏ = ưu tiên xử lý ngay</div>
+    <div style="overflow-x:auto;">
+      <table class="bm-tbl">
+        <thead><tr><th>Vấn đề quy trình</th><th>Tần suất đề cập</th><th>% Staff ảnh hưởng</th><th>% Leader ảnh hưởng</th><th>Mức độ cản trở</th><th>Ưu tiên xử lý</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Quy trình liên phòng ban thiếu phối hợp</strong></td><td>~40 lần</td><td>82%</td><td>91%</td><td><span class="badge bg-re">Rất cao</span></td><td><span class="badge bg-re">Ngay lập tức</span></td></tr>
+          <tr><td><strong>Thời gian đợi trình duyệt quá chậm</strong></td><td>~36 lần</td><td>74%</td><td>73%</td><td><span class="badge bg-re">Cao</span></td><td><span class="badge bg-re">Ngay lập tức</span></td></tr>
+          <tr><td><strong>Các bước quy trình không hợp lý / SOP lỗi thời</strong></td><td>~39 lần</td><td>79%</td><td>82%</td><td><span class="badge bg-re">Rất cao</span></td><td><span class="badge bg-re">Ngay lập tức</span></td></tr>
+          <tr><td><strong>Hệ thống phần mềm yếu, thiếu tích hợp</strong></td><td>~32 lần</td><td>65%</td><td>45%</td><td><span class="badge bg-am">Cao</span></td><td><span class="badge bg-am">Quý 3/2026</span></td></tr>
+          <tr><td><strong>Chứng từ hành chính rườm rà</strong></td><td>~30 lần</td><td>61%</td><td>55%</td><td><span class="badge bg-am">Trung bình-cao</span></td><td><span class="badge bg-am">Quý 3/2026</span></td></tr>
+          <tr><td><strong>Sale phải làm thay việc BO (đổi trả, công nợ)</strong></td><td>~25 lần</td><td>52%</td><td>73%</td><td><span class="badge bg-re">Cao</span></td><td><span class="badge bg-re">Ngay lập tức</span></td></tr>
+          <tr><td><strong>Phản hồi thông tin chậm giữa bộ phận</strong></td><td>~22 lần</td><td>43%</td><td>64%</td><td><span class="badge bg-am">Trung bình</span></td><td><span class="badge bg-am">Quý 3/2026</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Phân tích nguyên nhân gốc — Why 5 Levels</div>
+      <div class="card-sub">Vấn đề: Quy trình liên phòng ban kém hiệu quả</div>
+      <div style="padding:16px 0;">
+        <div style="display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;"><div style="min-width:28px;height:28px;background:var(--coral);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">1</div><div><div style="font-size:12px;font-weight:700;">Tại sao? Quy trình rườm rà, chậm trễ</div><div style="font-size:11px;color:var(--muted);">Nhân viên phàn nàn phải chờ duyệt, làm thủ công nhiều bước</div></div></div>
+        <div style="display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;"><div style="min-width:28px;height:28px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">2</div><div><div style="font-size:12px;font-weight:700;">Tại sao? Thiếu SOP được viết ra và cập nhật</div><div style="font-size:11px;color:var(--muted);">Mỗi người hiểu khác nhau, phụ thuộc trí nhớ cá nhân</div></div></div>
+        <div style="display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;"><div style="min-width:28px;height:28px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">3</div><div><div style="font-size:12px;font-weight:700;">Tại sao? Không có ownership rõ ràng về quy trình</div><div style="font-size:11px;color:var(--muted);">Mỗi phòng ban tự quản, không ai chịu trách nhiệm end-to-end</div></div></div>
+        <div style="display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;"><div style="min-width:28px;height:28px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">4</div><div><div style="font-size:12px;font-weight:700;">Tại sao? Thiếu cơ cấu cross-functional leadership</div><div style="font-size:11px;color:var(--muted);">Không có process owner hoặc cross-functional team</div></div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;"><div style="min-width:28px;height:28px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">✓</div><div><div style="font-size:12px;font-weight:700;color:var(--navy);">Nguyên nhân gốc: Thiếu tư duy hệ thống & quản trị quy trình</div><div style="font-size:11px;color:var(--muted);">Không có người/bộ phận chịu trách nhiệm tối ưu hoá vận hành tổng thể</div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Roadmap cải thiện quy trình — 3 giai đoạn</div>
+      <div class="card-sub">Từ trạng thái hiện tại → Mục tiêu 12 tháng</div>
+      <div style="padding:8px 0;">
+        <div style="background:var(--coral3);border-radius:10px;padding:14px;margin-bottom:10px;border-left:4px solid var(--coral);">
+          <div style="font-size:10px;font-weight:700;color:var(--coral);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Giai đoạn 1 — 0–60 ngày: Tháo gỡ điểm nghẽn cấp bách</div>
+          <div style="font-size:12px;color:var(--text);">• Lập danh sách 10 quy trình gây ách tắc nhiều nhất<br>• Phân công process owner cho từng quy trình liên phòng<br>• Họp cross-functional hàng tuần (Kinh doanh–Kho–Kế toán–Admin)<br>• Triển khai SLA phản hồi nội bộ: 24h cho routine, 4h cho urgent</div>
+        </div>
+        <div style="background:var(--gold3);border-radius:10px;padding:14px;margin-bottom:10px;border-left:4px solid var(--gold);">
+          <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Giai đoạn 2 — 60–180 ngày: Chuẩn hóa & Hệ thống hóa</div>
+          <div style="font-size:12px;color:var(--text);">• Viết SOP cho 20 quy trình ưu tiên cao, đưa lên Base<br>• Phân định rõ ranh giới công việc Sale vs BO (đặc biệt đổi trả, công nợ)<br>• Cải thiện hệ thống phần mềm: module kho, công nợ, đơn hàng<br>• Training toàn bộ nhân viên về quy trình mới</div>
+        </div>
+        <div style="background:var(--green3);border-radius:10px;padding:14px;border-left:4px solid var(--green);">
+          <div style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Giai đoạn 3 — 180–365 ngày: Tối ưu & Đo lường</div>
+          <div style="font-size:12px;color:var(--text);">• Đo KPI quy trình: thời gian xử lý, tỷ lệ sai sót, NPS nội bộ<br>• Tích hợp phần mềm: kho–kế toán–CRM–Base liên thông<br>• Khảo sát pulse hàng quý đo cải thiện<br>• Khen thưởng team cải tiến quy trình tốt nhất</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 5 — VĂN HÓA SÂU
+══════════════════════════════════════ -->
+<div id="culture" class="sec">
+  <div class="sec-head">06 — Văn hóa & Môi trường — Phân tích đa chiều</div>
+
+  <div class="grid2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">Điểm mạnh văn hóa — Nền tảng giữ người</div>
+      <div class="card-sub">Yếu tố được đánh giá tích cực nhất — được đề cập nhiều trong lý do ở lại</div>
+      <div class="br"><div class="bl sm">Đồng nghiệp hợp tác, tôn trọng</div><div class="bt"><div class="bf gr" style="width:73.7%"><span class="bf-txt">28/38 Staff</span></div></div><div class="bp">73.7%</div></div>
+      <div class="br"><div class="bl sm">Môi trường tích cực</div><div class="bt"><div class="bf gr" style="width:52.6%"><span class="bf-txt">20/38</span></div></div><div class="bp">52.6%</div></div>
+      <div class="br"><div class="bl sm">Sếp tâm lý / lắng nghe</div><div class="bt"><div class="bf" style="width:45%"><span class="bf-txt">Đề cập nhiều</span></div></div><div class="bp">~45%</div></div>
+      <div class="br"><div class="bl sm">Đóng BHXH full lương</div><div class="bt"><div class="bf s" style="width:40%"><span class="bf-txt">Đề cập nhiều</span></div></div><div class="bp">~40%</div></div>
+      <div class="br"><div class="bl sm">Gần nhà / thu nhập ổn định</div><div class="bt"><div class="bf g" style="width:30%"><span class="bf-txt">Nhóm lâu năm</span></div></div><div class="bp">~30%</div></div>
+      <div class="hl" style="margin-top:14px;">
+        <div class="hl-tag">Insight: "Con người" là lý do giữ chân mạnh nhất</div>
+        <div class="hl-txt">Trong 49 phản hồi, <strong>đồng nghiệp và con người</strong> được nhắc đến nhiều nhất khi hỏi "điều gì giữ bạn ở lại". Đây là tài sản văn hóa vô giá — cần được bảo vệ và vun đắp tích cực.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Điểm yếu văn hóa — Nguy cơ xói mòn</div>
+      <div class="card-sub">Vấn đề văn hóa được nêu nhiều nhất — ảnh hưởng đến gắn kết</div>
+      <div class="br"><div class="bl sm">Thiếu kết nối liên phòng ban</div><div class="bt"><div class="bf co" style="width:65%"><span class="bf-txt">~32 lần đề cập</span></div></div><div class="bp co">65%</div></div>
+      <div class="br"><div class="bl sm">Thụ động / sợ trách nhiệm</div><div class="bt"><div class="bf co" style="width:55%"><span class="bf-txt">~27 lần</span></div></div><div class="bp co">55%</div></div>
+      <div class="br"><div class="bl sm">Đùn đẩy công việc</div><div class="bt"><div class="bf o" style="width:45%"><span class="bf-txt">~22 lần</span></div></div><div class="bp">45%</div></div>
+      <div class="br"><div class="bl sm">Chia bè phái / mất đoàn kết</div><div class="bt"><div class="bf g" style="width:30%"><span class="bf-txt">~15 lần</span></div></div><div class="bp">30%</div></div>
+      <div class="br"><div class="bl sm">Văn hóa im lặng / không phản hồi</div><div class="bt"><div class="bf g" style="width:25%"><span class="bf-txt">~12 lần</span></div></div><div class="bp">25%</div></div>
+      <div class="br"><div class="bl sm">Thiên vị, không công bằng</div><div class="bt"><div class="bf p" style="width:20%"><span class="bf-txt">~10 lần</span></div></div><div class="bp">20%</div></div>
+    </div>
+  </div>
+
+  <!-- eNPS ước tính -->
+  <div class="card">
+    <div class="card-title">Ước tính điểm eNPS (Employee Net Promoter Score)</div>
+    <div class="card-sub">Dựa trên câu hỏi "muốn gắn bó lâu dài" · Điểm 1–5 quy đổi sang thang eNPS · Đối chiếu benchmark</div>
+    <div class="grid3">
+      <div style="text-align:center;padding:20px;background:var(--light);border-radius:12px;">
+        <div style="font-size:11px;color:var(--muted);font-weight:600;margin-bottom:8px;">Promoters (điểm 5)</div>
+        <div style="font-size:36px;font-weight:800;color:var(--green);">~35%</div>
+        <div style="font-size:11px;color:var(--muted);">~17 người</div>
+      </div>
+      <div style="text-align:center;padding:20px;background:var(--light);border-radius:12px;">
+        <div style="font-size:11px;color:var(--muted);font-weight:600;margin-bottom:8px;">Passives (điểm 3–4)</div>
+        <div style="font-size:36px;font-weight:800;color:var(--gold);">~47%</div>
+        <div style="font-size:11px;color:var(--muted);">~23 người</div>
+      </div>
+      <div style="text-align:center;padding:20px;background:var(--light);border-radius:12px;">
+        <div style="font-size:11px;color:var(--muted);font-weight:600;margin-bottom:8px;">Detractors (điểm 1–2)</div>
+        <div style="font-size:36px;font-weight:800;color:var(--coral);">~18%</div>
+        <div style="font-size:11px;color:var(--muted);">~9 người</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;padding:16px;background:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:4px;">Ước tính eNPS của công ty</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.7);">eNPS = %Promoters − %Detractors = 35% − 18%</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:42px;font-weight:800;color:var(--gold);line-height:1;">+17</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);">Chuẩn tốt: +21 đến +40</div>
+      </div>
+    </div>
+    <div class="hl a" style="margin-top:12px;">
+      <div class="hl-tag">Đánh giá eNPS</div>
+      <div class="hl-txt">eNPS +17 nằm trong vùng "bình thường" (–10 đến +20 theo Hive HR). Chưa đạt mức "tốt" (+21). Mục tiêu cần đạt: <strong>eNPS +25 vào cuối 2026</strong> thông qua cải thiện lương thưởng và quy trình.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 6 — LEADER DEEP DIVE
+══════════════════════════════════════ -->
+<div id="leader" class="sec">
+  <div class="sec-head">07 — Phân tích chuyên sâu nhóm Leader</div>
+
+  <div class="grid2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">Năng lực Leadership — Tự đánh giá vs Yêu cầu</div>
+      <div class="card-sub">Khoảng cách giữa kỹ năng hiện có và kỹ năng cần thiết</div>
+      <div class="br"><div class="bl sm">Tạo động lực nhân viên</div><div class="bt"><div class="bf co" style="width:72.7%"><span class="bf-txt">8/11 muốn training</span></div></div><div class="bp co">72.7%</div></div>
+      <div class="br"><div class="bl sm">Xử lý xung đột</div><div class="bt"><div class="bf o" style="width:63.6%"><span class="bf-txt">7/11</span></div></div><div class="bp">63.6%</div></div>
+      <div class="br"><div class="bl sm">Tâm lý nhân viên</div><div class="bt"><div class="bf o" style="width:63.6%"><span class="bf-txt">7/11</span></div></div><div class="bp">63.6%</div></div>
+      <div class="br"><div class="bl sm">Phân tích KPI & hiệu suất</div><div class="bt"><div class="bf g" style="width:54.5%"><span class="bf-txt">6/11</span></div></div><div class="bp">54.5%</div></div>
+      <div class="br"><div class="bl sm">Tuyển dụng & đánh giá</div><div class="bt"><div class="bf s" style="width:45.5%"><span class="bf-txt">5/11</span></div></div><div class="bp">45.5%</div></div>
+      <div class="hl p" style="margin-top:14px;">
+        <div class="hl-tag">Chẩn đoán</div>
+        <div class="hl-txt">Leader thiếu hụt chủ yếu về <strong>kỹ năng mềm quản lý người</strong>, không phải chuyên môn. Đây là gap phổ biến khi công ty phát triển từ SME: người giỏi chuyên môn được thăng lên quản lý nhưng không được đào tạo về leadership.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Ma trận rủi ro nhân sự Leader — 11 người</div>
+      <div class="card-sub">Đánh giá rủi ro từng cá nhân theo tín hiệu khảo sát</div>
+      <div style="overflow-x:auto;margin-top:4px;">
+        <table class="bm-tbl">
+          <thead><tr><th>Bộ phận</th><th>Điểm HL</th><th>Gắn kết</th><th>Nghỉ việc?</th><th>1on1?</th><th>Mức rủi ro</th></tr></thead>
+          <tbody>
+            <tr><td>Kho</td><td>4/10</td><td>2/5</td><td>Đã nghiêm túc</td><td>Cần ngay</td><td><span class="badge bg-re">Rất cao</span></td></tr>
+            <tr><td>Kinh doanh (L2)</td><td>6/10</td><td>4/5</td><td>Đã nghiêm túc</td><td>Chưa</td><td><span class="badge bg-re">Cao</span></td></tr>
+            <tr><td>BGĐ</td><td>7/10</td><td>4/5</td><td>Đã nghiêm túc</td><td>Cần ngay</td><td><span class="badge bg-re">Cao</span></td></tr>
+            <tr><td>Ban trợ lý</td><td>7/10</td><td>4/5</td><td>Có suy nghĩ</td><td>Chưa</td><td><span class="badge bg-am">Trung bình</span></td></tr>
+            <tr><td>Quản lý</td><td>7/10</td><td>4/5</td><td>Có suy nghĩ</td><td>Chưa</td><td><span class="badge bg-am">Trung bình</span></td></tr>
+            <tr><td>SA</td><td>8/10</td><td>4/5</td><td>Đã nghiêm túc</td><td>Chưa</td><td><span class="badge bg-am">Trung bình</span></td></tr>
+            <tr><td>Marketing</td><td>7/10</td><td>4/5</td><td>Có suy nghĩ</td><td>Chưa</td><td><span class="badge bg-am">Trung bình</span></td></tr>
+            <tr><td>Kinh doanh (L1)</td><td>8/10</td><td>5/5</td><td>Chưa từng</td><td>Cần</td><td><span class="badge bg-gr">Thấp</span></td></tr>
+            <tr><td>Trang thiết bị</td><td>8/10</td><td>5/5</td><td>Có suy nghĩ</td><td>Chưa</td><td><span class="badge bg-am">Trung bình</span></td></tr>
+            <tr><td>XNK</td><td>5/10</td><td>3/5</td><td>Chưa từng</td><td>Cần</td><td><span class="badge bg-am">Trung bình</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Điều Leader muốn BGĐ hiểu rõ hơn về thực tế team</div>
+    <div class="card-sub">Tổng hợp từ câu hỏi mở "Điều gì bạn muốn ban lãnh đạo hiểu rõ hơn?"</div>
+    <div class="q-grid">
+      <div class="q-card ldr">"Team luôn tin tưởng theo định hướng lãnh đạo, nhưng việc chậm phản hồi hoặc chuyển giao quyền quyết định làm ảnh hưởng đến tốc độ làm việc. Mong muốn đơn giản hóa số người có thể ra quyết định cuối cùng."<div class="q-src">👔 Leader Marketing</div></div>
+      <div class="q-card ldr">"Định hướng công ty thường thay đổi nhanh, trong khi chính sách chi tiết lại triển khai trễ deadline. Thông điệp tái cấu trúc đã bị lạm dụng trong 5 năm — rất ít initiative được đeo đuổi đến cuối cùng."<div class="q-src">👔 Leader BGĐ</div></div>
+      <div class="q-card ldr">"Sếp cần đi sâu vào từng công việc, từng chi tiết. Cần nghe nhân viên nhiều hơn. Sếp hay để nhân viên trong tình trạng 'chờ/đợi' mà không có deadline khi nào sẽ quyết định."<div class="q-src">👔 Leader Ban trợ lý</div></div>
+      <div class="q-card ldr">"Team thiếu nhân sự và đang trong giai đoạn tìm chiến lược đúng. Cần định vị và thử nghiệm, cập nhật và điều chỉnh liên tục — không nên đánh giá chỉ dựa trên kết quả ngắn hạn."<div class="q-src">👔 Leader Kinh doanh</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 7 — CHI PHÍ NGHỈ VIỆC
+══════════════════════════════════════ -->
+<div id="cost" class="sec">
+  <div class="sec-head">08 — Phân tích tài chính — Chi phí của sự mất gắn kết</div>
+
+  <div class="grid2">
+    <div class="cost-box">
+      <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px;">💸 Ước tính chi phí nếu 9 người nghỉ việc</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.55);margin-bottom:20px;">Dựa trên nghiên cứu World Bank (3–5 tháng lương/người) và Talentnet Vietnam 2024</div>
+      <div class="cost-row"><div class="cost-lbl">Lương TB ước tính / người / tháng</div><div class="cost-val">10–15 triệu VNĐ</div></div>
+      <div class="cost-row"><div class="cost-lbl">Chi phí thay thế 1 người (5 tháng lương)</div><div class="cost-val">50–75 triệu VNĐ</div></div>
+      <div class="cost-row"><div class="cost-lbl">Nhóm rủi ro cao (9 người cân nhắc nghiêm túc)</div><div class="cost-val">9 người</div></div>
+      <div class="cost-row"><div class="cost-lbl">Chi phí tuyển dụng + đào tạo thay thế</div><div class="cost-val">450–675 triệu</div></div>
+      <div class="cost-row"><div class="cost-lbl">Chi phí năng suất thấp (6 tháng đầu nhân sự mới)</div><div class="cost-val">200–300 triệu</div></div>
+      <div class="cost-row" style="border-top:2px solid var(--gold);"><div class="cost-lbl total" style="color:#fff;font-weight:700;">Tổng thiệt hại ước tính</div><div class="cost-val" style="color:var(--gold);font-size:22px;">650M – 975M VNĐ</div></div>
+      <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:12px;">* Chưa tính chi phí mất kiến thức, ảnh hưởng morale nhân viên còn lại, và mất mối quan hệ khách hàng</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">So sánh: Chi phí giữ người vs Chi phí mất người</div>
+      <div class="card-sub">Đầu tư giữ chân nhân tài vs Chi phí thay thế — ROI rõ ràng</div>
+      <div style="margin-bottom:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:8px;">🟢 Chi phí giữ chân (ước tính/năm):</div>
+        <div class="br"><div class="bl sm">Tăng lương thâm niên 5–10%</div><div class="bt"><div class="bf gr" style="width:30%"><span class="bf-txt">~150–300M</span></div></div></div>
+        <div class="br"><div class="bl sm">Training leadership (6 leader)</div><div class="bt"><div class="bf gr" style="width:10%"><span class="bf-txt">~30–60M</span></div></div></div>
+        <div class="br"><div class="bl sm">Thưởng variable BO (quarterly)</div><div class="bt"><div class="bf gr" style="width:20%"><span class="bf-txt">~100–200M</span></div></div></div>
+        <div class="br"><div class="bl sm">Cải thiện quy trình/phần mềm</div><div class="bt"><div class="bf gr" style="width:20%"><span class="bf-txt">~100–150M</span></div></div></div>
+        <div style="padding:10px 14px;background:var(--green3);border-radius:8px;border:1px solid var(--green2);font-size:13px;font-weight:700;color:#065F46;">✅ Tổng đầu tư giữ người: ~380–710M VNĐ</div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--coral);margin-bottom:8px;">🔴 Chi phí nếu mất 9 người:</div>
+        <div style="padding:10px 14px;background:var(--coral3);border-radius:8px;border:1px solid var(--coral2);font-size:13px;font-weight:700;color:#991B1B;">❌ Chi phí thay thế: ~650M – 975M VNĐ</div>
+      </div>
+      <div style="padding:16px;background:var(--navy);border-radius:10px;text-align:center;">
+        <div style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;">ROI của việc đầu tư giữ người</div>
+        <div style="font-size:28px;font-weight:800;color:var(--teal2);">+37% đến +71%</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;">Tiết kiệm 270–265M so với chi phí thay thế</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 8 — PHÂN TÍCH RỦI RO ĐẦY ĐỦ
+══════════════════════════════════════ -->
+<div id="risk" class="sec">
+  <div class="sec-head">09 — Ma trận rủi ro & Điểm sức mạnh toàn diện</div>
+
+  <div class="grid2" style="margin-bottom:20px;">
+    <div>
+      <div class="risk hi">
+        <div class="risk-ico">🔴</div>
+        <div><div class="risk-lv">Rủi ro NGHIÊM TRỌNG — Hành động ngay trong 14 ngày</div>
+        <div class="risk-title">59% nhân viên có ý định nghỉ việc — Gấp 1.5x chuẩn ngành</div>
+        <div class="risk-desc">9 người đã cân nhắc nghiêm túc. Tập trung vào nhóm thâm niên 3–5+ năm — họ mang theo kiến thức ngành không thể thay thế nhanh. Chi phí rủi ro: 650–975M VNĐ.</div></div>
+      </div>
+      <div class="risk hi">
+        <div class="risk-ico">🔴</div>
+        <div><div class="risk-lv">Rủi ro NGHIÊM TRỌNG — Trong 30 ngày</div>
+        <div class="risk-title">73.7% không hài lòng lương — Thấp nhất trong tất cả các benchmark so sánh</div>
+        <div class="risk-desc">Đây là nguyên nhân gốc rễ của đa số vấn đề. Không có action cụ thể về lương trong 30 ngày tới sẽ đẩy thêm nhân viên vào trạng thái tích cực tìm việc.</div></div>
+      </div>
+      <div class="risk hi">
+        <div class="risk-ico">🟠</div>
+        <div><div class="risk-lv">Rủi ro CAO — Trong 60 ngày</div>
+        <div class="risk-title">Leader có WLB và quy trình thấp hơn Staff — Nguy cơ burnout quản lý</div>
+        <div class="risk-desc">3 leader đã cân nhắc nghiêm túc nghỉ việc. Mất leader giữa chừng gây gián đoạn team lớn hơn mất nhân viên thông thường. Cần can thiệp ưu tiên nhóm Kho và BGĐ.</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="risk me">
+        <div class="risk-ico">🟡</div>
+        <div><div class="risk-lv">Rủi ro TRUNG BÌNH — Trong 90 ngày</div>
+        <div class="risk-title">Quy trình liên phòng ban kém — 91% leader phản ánh gây cản trở</div>
+        <div class="risk-desc">Điểm quy trình 2.8/5 — thấp hơn chuẩn ngành 0.4–0.8 điểm. Gây lãng phí thời gian, mất năng suất, và là nguồn "mất năng lượng" hàng đầu của nhân viên.</div></div>
+      </div>
+      <div class="risk me">
+        <div class="risk-ico">🟡</div>
+        <div><div class="risk-lv">Rủi ro TRUNG BÌNH — Trong 90 ngày</div>
+        <div class="risk-title">Văn hóa thụ động, sợ trách nhiệm lan rộng</div>
+        <div class="risk-desc">81.8% leader xác nhận đây là điểm hạn chế lớn nhất của nhân viên. Nếu không được xử lý, hiệu suất vận hành tiếp tục suy giảm dù có tuyển thêm người.</div></div>
+      </div>
+      <div class="risk lo">
+        <div class="risk-ico">🟢</div>
+        <div><div class="risk-lv">Điểm mạnh — Cần bảo vệ và phát huy</div>
+        <div class="risk-title">Nền tảng con người & văn hóa nội bộ tích cực</div>
+        <div class="risk-desc">73.7% nhân viên đánh giá đồng nghiệp tốt. Niềm tự hào tổ chức 3.9/5 đạt chuẩn. Đây là điểm khác biệt cạnh tranh trong thu hút và giữ nhân tài — cần bảo vệ bằng mọi giá.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SWOT -->
+  <div class="card">
+    <div class="card-title">Phân tích SWOT — Nhân sự & Tổ chức</div>
+    <div class="card-sub">Tổng hợp từ dữ liệu khảo sát Staff + Leader</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden;">
+      <div style="background:#F0FDF4;padding:22px;">
+        <div style="font-size:11px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">💪 Strengths — Điểm mạnh</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.8;">✅ Văn hóa con người thân thiện, không toxic<br>✅ Niềm tự hào tổ chức cao (3.9/5 — vượt chuẩn global)<br>✅ Đóng BHXH full lương — phúc lợi cơ bản tốt<br>✅ Lãnh đạo chịu lắng nghe, định hướng rõ<br>✅ Nhân sự thâm niên có kiến thức ngành sâu<br>✅ Tỷ lệ WLB đạt chuẩn khu vực</div>
+      </div>
+      <div style="background:#FEF2F2;padding:22px;">
+        <div style="font-size:11px;font-weight:700;color:var(--coral);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">⚠️ Weaknesses — Điểm yếu</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.8;">❌ Chính sách lương thiếu minh bạch, không cạnh tranh<br>❌ Quy trình vận hành rườm rà, thiếu SOP<br>❌ Văn hóa thụ động, sợ trách nhiệm<br>❌ Thiếu cơ chế ghi nhận và thưởng công bằng<br>❌ Phản hồi từ cấp trên chậm trễ, thiếu nhất quán<br>❌ Leader thiếu kỹ năng quản lý người</div>
+      </div>
+      <div style="background:#EFF6FF;padding:22px;">
+        <div style="font-size:11px;font-weight:700;color:var(--sky);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">🚀 Opportunities — Cơ hội</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.8;">🔵 61.25% phản hồi = nhân viên sẵn sàng tham gia cải thiện<br>🔵 45% vẫn gắn kết tích cực — nền tảng tốt để lan rộng<br>🔵 eNPS +17 — tiếp cận đạt ngưỡng "tốt" (+21) trong tầm tay<br>🔵 Thị trường nha khoa/y tế VN tăng trưởng — cơ hội thu nhập<br>🔵 Tái cấu trúc quy trình có thể tăng 20–30% năng suất</div>
+      </div>
+      <div style="background:#FFFBEB;padding:22px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">🎯 Threats — Thách thức</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.8;">⚠️ Voluntary turnover VN 9.6% nhưng CT ~20–25% — chênh gấp đôi<br>⚠️ Thị trường cạnh tranh nhân tài ngành y tế/nha khoa tăng cao<br>⚠️ Lạm phát 2024–2025 làm giảm sức mua thực của lương cố định<br>⚠️ Nếu mất leader core, hiệu ứng domino lan rộng<br>⚠️ Nhân viên thâm niên mang kiến thức khách hàng không thể thay thế nhanh</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 9 — ROADMAP HÀNH ĐỘNG
+══════════════════════════════════════ -->
+<div id="roadmap" class="sec">
+  <div class="sec-head">10 — Lộ trình hành động — Ưu tiên & KPI đo lường</div>
+  <div class="sec-title">Kế hoạch hành động 12 tháng — 4 Giai đoạn</div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-title">Bảng hành động ưu tiên — Chi tiết đầy đủ</div>
+    <div class="card-sub">Sắp xếp theo mức độ khẩn cấp · KPI đo lường · Owner đề xuất</div>
+    <div style="overflow-x:auto;">
+      <table class="act-tbl">
+        <thead>
+          <tr>
+            <th style="width:5%">P</th>
+            <th style="width:25%">Hành động cụ thể</th>
+            <th style="width:15%">Đối tượng & Scope</th>
+            <th style="width:15%">Timeline</th>
+            <th style="width:20%">KPI đo lường</th>
+            <th style="width:10%">Owner</th>
+            <th style="width:10%">Chi phí ước tính</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="p1">1</span></td>
+            <td><strong>1on1 khẩn cấp với 15 nhân viên/leader rủi ro cao</strong><br><span style="font-size:11px;color:var(--muted);">9 Staff đã cân nhắc nghiêm túc + 5 Leader muốn gặp. Lắng nghe, ghi nhận, đưa ra cam kết cụ thể.</span></td>
+            <td><span class="badge bg-re">Nhóm rủi ro cao</span></td>
+            <td>0–14 ngày</td>
+            <td>% hoàn thành 1on1 · Điểm cam kết sau buổi gặp</td>
+            <td>CEO / CHRO</td>
+            <td>0 (thời gian)</td>
+          </tr>
+          <tr>
+            <td><span class="p1">1</span></td>
+            <td><strong>Công bố khung lương + lộ trình tăng lương bằng văn bản</strong><br><span style="font-size:11px;color:var(--muted);">Job level 1–5, pay band, điều kiện xét tăng lương 2 lần/năm. Không cần hoàn hảo ngay — tín hiệu cam kết quan trọng hơn.</span></td>
+            <td><span class="badge bg-re">Toàn bộ</span></td>
+            <td>0–30 ngày</td>
+            <td>% nhân viên hiểu rõ khung lương (survey pulse) · Giảm 20% câu hỏi về lương</td>
+            <td>CHRO + CEO</td>
+            <td>Nhân sự nội bộ</td>
+          </tr>
+          <tr>
+            <td><span class="p1">1</span></td>
+            <td><strong>Review lương thâm niên ngay cho nhóm 3–5+ năm chưa tăng >12 tháng</strong><br><span style="font-size:11px;color:var(--muted);">Ưu tiên 15–20 nhân viên thâm niên nhất. Mức điều chỉnh đề xuất 5–15% tùy vị trí và đóng góp.</span></td>
+            <td><span class="badge bg-re">Nhân viên thâm niên</span></td>
+            <td>0–45 ngày</td>
+            <td>% nhân viên thâm niên được review · Giảm ý định nghỉ việc nghiêm túc từ 18% xuống <10%</td>
+            <td>CHRO + CFO</td>
+            <td>150–300M VNĐ/năm</td>
+          </tr>
+          <tr>
+            <td><span class="p2">2</span></td>
+            <td><strong>Lập Cross-functional Process Team — Quy trình ưu tiên Sale–Kho–KT–Admin</strong><br><span style="font-size:11px;color:var(--muted);">Phân công process owner, SLA phản hồi nội bộ, họp weekly 30 phút. Xử lý top 10 điểm nghẽn quy trình đầu tiên.</span></td>
+            <td><span class="badge bg-am">KD + BO</span></td>
+            <td>30–60 ngày</td>
+            <td>Thời gian xử lý đơn hàng · Số sự vụ phát sinh / tuần · Điểm quy trình tăng từ 2.8 lên ≥3.3</td>
+            <td>COO / Trưởng BP</td>
+            <td>Nhân sự nội bộ</td>
+          </tr>
+          <tr>
+            <td><span class="p2">2</span></td>
+            <td><strong>Triển khai chính sách thưởng variable cho back-office</strong><br><span style="font-size:11px;color:var(--muted);">15–25% lương theo mốc doanh thu quý. Kho: thưởng theo số đơn/tháng. KT công nợ: thưởng theo tỷ lệ thu hồi. Giao nhận: thưởng theo đơn giao.</span></td>
+            <td><span class="badge bg-am">Back-Office</span></td>
+            <td>30–60 ngày</td>
+            <td>Tốc độ xử lý đơn · Tỷ lệ phối hợp BO với sale · Hài lòng lương BO tăng</td>
+            <td>CFO + CHRO</td>
+            <td>100–200M VNĐ/năm</td>
+          </tr>
+          <tr>
+            <td><span class="p2">2</span></td>
+            <td><strong>Khảo sát pulse hàng quý — Đo hiệu quả cải thiện</strong><br><span style="font-size:11px;color:var(--muted);">Khảo sát ngắn 8–10 câu, cùng bộ câu hỏi để so sánh trending. Chia sẻ kết quả công khai trong 2 tuần sau khảo sát.</span></td>
+            <td><span class="badge bg-bl">Toàn bộ</span></td>
+            <td>Từ Q3/2026</td>
+            <td>Tỷ lệ phản hồi ≥70% · Điểm hài lòng tổng thể ≥7.0 vào Q4/2026</td>
+            <td>CHRO</td>
+            <td>1–3M VNĐ/quý</td>
+          </tr>
+          <tr>
+            <td><span class="p3">3</span></td>
+            <td><strong>Chương trình đào tạo Leadership — 6 module trong 6 tháng</strong><br><span style="font-size:11px;color:var(--muted);">Tạo động lực nhân viên · Xử lý xung đột · Coaching 1:1 · Tâm lý nhân viên · Phân tích KPI · Tuyển dụng & onboarding. Hình thức: workshop + coaching cá nhân.</span></td>
+            <td><span class="badge bg-pu">Leader</span></td>
+            <td>60–180 ngày</td>
+            <td>% Leader hoàn thành training · Điểm đánh giá 360° từ nhân viên · Giảm tỷ lệ turnover nhóm Leader</td>
+            <td>CHRO + đối tác đào tạo</td>
+            <td>30–80M VNĐ</td>
+          </tr>
+          <tr>
+            <td><span class="p3">3</span></td>
+            <td><strong>Xây dựng SOP cho 20 quy trình liên phòng ban ưu tiên cao</strong><br><span style="font-size:11px;color:var(--muted);">Ưu tiên: đổi trả hàng, quyết toán công nợ, xuất hàng kho, xuất hóa đơn, quy trình giao nhận. Đưa lên Base, training toàn bộ nhân viên.</span></td>
+            <td><span class="badge bg-am">BO + KD</span></td>
+            <td>60–120 ngày</td>
+            <td>Số SOP được viết và đưa vào vận hành · Giảm số cuộc gọi/tin nhắn hỏi quy trình 30%</td>
+            <td>COO + Process owner</td>
+            <td>Nhân sự nội bộ</td>
+          </tr>
+          <tr>
+            <td><span class="p4">4</span></td>
+            <td><strong>Quy đổi ngày nghỉ phép dư sang tiền/hiện vật</strong><br><span style="font-size:11px;color:var(--muted);">Chính sách đơn giản: ngày phép dư cuối năm quy đổi 70–100% giá trị. Nhân viên đề xuất nhiều — thực hiện được sẽ tạo thiện chí lớn với chi phí không cao.</span></td>
+            <td><span class="badge bg-te">Staff</span></td>
+            <td>Q3/2026</td>
+            <td>Điểm hài lòng phúc lợi · % nhân viên biết và đánh giá tích cực</td>
+            <td>CHRO + CFO</td>
+            <td>20–50M VNĐ/năm</td>
+          </tr>
+          <tr>
+            <td><span class="p4">4</span></td>
+            <td><strong>Chương trình Recognition & Ghi nhận đóng góp định kỳ</strong><br><span style="font-size:11px;color:var(--muted);">Monthly shoutout · Nhân viên xuất sắc quý · Ghi nhận ngay khi có kết quả tốt — không chờ cuối năm. Theo nghiên cứu Vantage Circle 2024: ghi nhận kịp thời giảm 45% ý định nghỉ việc.</span></td>
+            <td><span class="badge bg-te">Toàn bộ</span></td>
+            <td>Q3/2026</td>
+            <td>% nhân viên cảm thấy được ghi nhận (tăng từ ~40% lên ≥60%) · Tần suất ghi nhận/tháng</td>
+            <td>CHRO + Quản lý BP</td>
+            <td>5–15M VNĐ/năm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- KPI Dashboard Mục tiêu -->
+  <div class="card">
+    <div class="card-title">Mục tiêu KPI nhân sự — Cuối 2026 vs Hiện tại</div>
+    <div class="card-sub">Mục tiêu thực tế dựa trên benchmark ngành và tiềm năng cải thiện</div>
+    <div style="overflow-x:auto;">
+      <table class="bm-tbl">
+        <thead><tr><th>Chỉ số</th><th>Hiện tại (2026)</th><th>Mục tiêu Q3/2026</th><th>Mục tiêu Q4/2026</th><th>Benchmark ngành</th><th>Phương pháp đạt</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Điểm hài lòng tổng thể</strong></td><td class="gap-neg">6.3/10</td><td>6.7/10</td><td><strong style="color:var(--green);">7.0/10</strong></td><td>6.8–7.2</td><td>Lương + Quy trình + Ghi nhận</td></tr>
+          <tr><td><strong>Điểm hài lòng lương</strong></td><td class="gap-neg">10.5%</td><td>25%</td><td><strong style="color:var(--green);">35%</strong></td><td>35–50%</td><td>Khung lương + review thâm niên</td></tr>
+          <tr><td><strong>Tỷ lệ gắn kết tích cực</strong></td><td class="gap-neg">45%</td><td>52%</td><td><strong style="color:var(--green);">58%</strong></td><td>50–58%</td><td>Engagement program + 1on1</td></tr>
+          <tr><td><strong>Ý định nghỉ việc (nghiêm túc)</strong></td><td class="gap-neg">18.4%</td><td>12%</td><td><strong style="color:var(--green);">8%</strong></td><td>8–12%</td><td>Lương + Môi trường + 1on1</td></tr>
+          <tr><td><strong>Điểm quy trình bộ phận</strong></td><td class="gap-neg">2.8/5</td><td>3.2/5</td><td><strong style="color:var(--green);">3.5/5</strong></td><td>3.2–3.6</td><td>SOP + Cross-functional team</td></tr>
+          <tr><td><strong>eNPS (ước tính)</strong></td><td class="gap-neg">+17</td><td>+22</td><td><strong style="color:var(--green);">+27</strong></td><td>+21 đến +40</td><td>Tổng thể tất cả hành động</td></tr>
+          <tr><td><strong>Tỷ lệ nhân viên vui vẻ hàng ngày</strong></td><td class="gap-neg">45%</td><td>52%</td><td><strong style="color:var(--green);">58%</strong></td><td>55–65%</td><td>Văn hóa + Quy trình</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TRÍCH DẪN + FOOTER
+══════════════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">11 — Tiếng nói trực tiếp từ nhân viên</div>
+  <div class="q-grid">
+    <div class="q-card">"Có nhiều nỗ lực nhưng cảm thấy không được ghi nhận, hỗ trợ nhưng cảm thấy như đó là điều hiển nhiên mình phải làm."<div class="q-src">👤 Staff · Trên 3 năm · Tín hiệu burnout</div></div>
+    <div class="q-card">"Người mới vào lương gần bằng mình, trong khi áp lực công việc gấp 2–3. Thật sự cảm thấy không công bằng."<div class="q-src">👤 Staff · Trên 5 năm · Rủi ro nghỉ việc cao</div></div>
+    <div class="q-card ldr">"Team mong muốn đơn giản số người có thể ra quyết định cuối cùng để có căn cứ làm và hoàn thành công việc đúng mục tiêu."<div class="q-src">👔 Leader Marketing · Về process decisionmaking</div></div>
+    <div class="q-card ldr">"Thông điệp tái cấu trúc đã bị lạm dụng 5 năm — rất ít initiative được triển khai đến cuối cùng."<div class="q-src">👔 Leader BGĐ · Về strategic execution</div></div>
+    <div class="q-card">"Đề xuất điều chỉnh lương chưa được duyệt — hỏi NS thì hẹn từ tuần này sang tuần khác, GDNS mới lại bàn lại từ đầu."<div class="q-src">👤 Staff · 3 năm · Rủi ro cao</div></div>
+    <div class="q-card ldr">"Lương của 3D chưa thực sự cạnh tranh so với thị trường. Khi nhân viên đã quen và làm được thì cần tạo khúc gap để kích thích và khích lệ phấn đấu."<div class="q-src">👔 Leader Ban trợ lý · Về talent retention strategy</div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <div>
+    <div style="color:#fff;font-weight:700;font-size:13px;margin-bottom:4px;">Báo Cáo Khảo Sát Nhân Viên 2026 — Phân Tích Toàn Diện</div>
+    <div>49 / 80 nhân sự · Staff: 38 · Leader: 11 · Tháng 04–05/2026 · Nguồn benchmark: Talentnet VN 2024, Culture Amp VN 2025, Gallup 2024, Hive HR Q3/2024</div>
+  </div>
+  <div style="text-align:right;">
+    <div style="color:var(--teal2);font-weight:700;font-size:11px;">Mục tiêu eNPS cuối 2026</div>
+    <div style="font-size:28px;font-weight:800;color:#fff;">+27</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.4);">Hiện tại: +17 · Chuẩn tốt: +21</div>
+  </div>
+</div>
+
+</div><!-- /main -->
+</body>
+</html>
